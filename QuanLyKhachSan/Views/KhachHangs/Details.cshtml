@@ -1,0 +1,40 @@
+﻿@model QuanLyKhachSan.Models.KhachHang
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lý /</span><span class="text-muted fw-light"> Khách hàng /</span> Chi tiết</h4>
+<div class="card mb-4">
+    <div class="card-body">
+    <div class="row">
+    <div class="mb-3 col-md-6">
+        <label class="form-label">Họ và Tên</label>
+        <p class="form-control">@Html.DisplayFor(model => model.HoTen)</p>
+    </div>
+    <div class="mb-3 col-md-6">
+        <label class="form-label">Ngày Sinh</label>
+        <p class="form-control">@Html.DisplayFor(model => model.NgaySinh)</p>
+    </div>
+    <div class="mb-3 col-md-6">
+        <label class="form-label">Dịa chỉ</label>
+        <p class="form-control">@Html.DisplayFor(model => model.DiaChi)</p>
+    </div>
+    <div class="mb-3 col-md-6">
+        <label class="form-label">Số điện thoại</label>
+        <p class="form-control">@Html.DisplayFor(model => model.Sdt)</p>
+    </div>
+    <div class="mb-3 col-md-6">
+        <label class="form-label">Tai khoản Email</label>
+        <p class="form-control">@Html.DisplayFor(model => model.Email)</p>
+    </div>
+      
+    </div>
+     <div class="mt-2">
+        <a type="submit" asp-action="Edit" asp-route-id="@Model.MaKhachHang" class="btn btn-primary me-2">Sửa</a>
+        <a asp-action="Index" class="btn btn-outline-secondary">Trở Về</a>
+    </div>
+    </div>
+    </div>
+
+

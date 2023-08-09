@@ -1,0 +1,52 @@
+﻿@model QuanLyKhachSan.Models.KhachHang
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lý /</span><span class="text-muted fw-light"> Khách hàng /</span> Thêm</h4>
+
+<hr />
+<div class="card mb-4">
+    <div class="card-body">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+            <div class="mb-4 col-md-6">
+                <label asp-for="HoTen" class="control-label">Họ Tên</label>
+                <input asp-for="HoTen" class="form-control" />
+                <span asp-validation-for="HoTen" class="text-danger"></span>
+            </div>
+            <div class="mb-4 col-md-6">
+                <label asp-for="NgaySinh" class="control-label">Ngày sinh</label>
+                <input asp-for="NgaySinh" class="form-control" />
+                <span asp-validation-for="NgaySinh" class="text-danger"></span>
+            </div>
+            <div class="mb-4 col-md-6">
+                <label asp-for="DiaChi" class="control-label">Đia chỉ</label>
+                <input asp-for="DiaChi" class="form-control" />
+                <span asp-validation-for="DiaChi" class="text-danger"></span>
+            </div>
+            <div class="mb-4 col-md-6">
+                <label asp-for="Sdt" class="control-label">Số điện thoại</label>
+                <input asp-for="Sdt" class="form-control" />
+                <span asp-validation-for="Sdt" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label asp-for="Email" class="control-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+           </div>
+            <div class="mt-2">
+                <input type="submit" value="Thêm" class="btn btn-primary me-2" />
+                <a asp-action="Index" class="btn btn-outline-secondary">Trở Về</a>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

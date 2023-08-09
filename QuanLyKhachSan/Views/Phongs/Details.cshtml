@@ -1,0 +1,31 @@
+﻿@model QuanLyKhachSan.Models.Phong
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lý /</span><span class="text-muted fw-light"> Phòng /</span> Chi tiết</h4>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Tên Sảnh</label>
+                <p class="form-control" >@Html.DisplayFor(model => model.TenPhong)</p>
+            </div>
+            <div class="mb-3 col-md-6"></div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Loại Sảnh</label>
+                <p class="form-control" >@Html.DisplayFor(model => model.MaLoaiPhongNavigation.TenLoaiPhong)</p>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Tình Trạng</label>
+                <p class="form-control" >@Html.DisplayFor(model => model.MaTinhTrangNavigation.TenTinhTrang)</p>
+            </div>
+        </div>
+        <div class="mt-2">
+            <a type="submit" asp-action="Edit" asp-route-id="@Model.MaPhong" class="btn btn-primary me-2">Sửa</a>
+            <a asp-action="Index" class="btn btn-outline-secondary">Trở Về</a>
+        </div>
+    </div>
+</div>

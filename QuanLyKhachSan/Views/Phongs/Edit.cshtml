@@ -1,0 +1,47 @@
+﻿@model QuanLyKhachSan.Models.Phong
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lý /</span><span class="text-muted fw-light"> Sảnh /</span> Sửa</h4>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaPhong" />
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">Tên Sảnh</label>
+                    <input
+                        class="form-control"
+                        type="text"
+                        id="tenPhong"
+                        name="tenPhong"
+                        asp-for="TenPhong"
+                    />
+                </div>
+                <div class="mb-3 col-md-6"></div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">Loại Sảnh</label>
+                    <select asp-for="MaLoaiPhong" class="form-control" asp-items="ViewBag.MaLoaiPhong"></select>
+                    <span asp-validation-for="MaLoaiPhong" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">Tình Trạng Sảnh</label>
+                    <select asp-for="MaTinhTrang" class="form-control" asp-items="ViewBag.MaTinhTrang"></select>
+                    <span asp-validation-for="MaTinhTrang" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mt-2">
+                <input type="submit" value="Lưu Thay Đổi" class="btn btn-primary me-2"/>
+                <a asp-action="Index" class="btn btn-outline-secondary">Trở Về</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

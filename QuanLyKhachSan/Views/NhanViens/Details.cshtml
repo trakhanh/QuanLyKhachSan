@@ -1,0 +1,50 @@
+﻿@model QuanLyKhachSan.Models.NhanVien
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lý /</span><span class="text-muted fw-light"> Nhân viên /</span> Chi tiết</h4>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Tài khoản</label>
+                <p class="form-control" >@Html.DisplayFor(model => model.TaiKhoan)</p>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Mật Khẩu</label>
+                <p class="form-control" >@Html.DisplayFor(model => model.MatKhau)</p>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Họ Và Tên</label>
+                <p class="form-control" >@Html.DisplayFor(model => model.HoTen)</p>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Ngày Sinh</label>
+                <p class="form-control" >@Html.DisplayFor(model => model.NgaySinh)</p>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Địa Chỉ</label>
+                <p class="form-control" >@Html.DisplayFor(model => model.DiaChi)</p>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Số Điện Thoại</label>
+                <p class="form-control" >@Html.DisplayFor(model => model.Sdt)</p>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">E-mail</label>
+                <p class="form-control" >@Html.DisplayFor(model => model.Email)</p>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Chức Vụ</label>
+                <p class="form-control" >@Html.DisplayFor(model => model.MaChucVuNavigation.TenChucVu)</p>
+            </div>
+        </div>
+        <div class="mt-2">
+            <a type="submit" asp-action="Edit" asp-route-id="@Model.MaNhanVien" class="btn btn-primary me-2">Sửa</a>
+            <a asp-action="Index" class="btn btn-outline-secondary">Trở Về</a>
+        </div>
+    </div>
+</div>

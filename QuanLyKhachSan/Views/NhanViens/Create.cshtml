@@ -1,0 +1,64 @@
+﻿@model QuanLyKhachSan.Models.NhanVien
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lý /</span><span class="text-muted fw-light"> Nhân viên /</span> Thêm</h4>
+
+<div class="card mb-4">
+    <div class="card-body">
+       <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Tài khoản</label>
+                <input asp-for="TaiKhoan" class="form-control" />
+                <span asp-validation-for="TaiKhoan" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Mật Khẩu</label>
+                <input asp-for="MatKhau" class="form-control" />
+                <span asp-validation-for="MatKhau" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Họ Và Tên</label>
+                <input asp-for="HoTen" class="form-control" />
+                <span asp-validation-for="HoTen" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Ngày Sinh</label>
+                <input asp-for="NgaySinh" class="form-control" />
+                <span asp-validation-for="NgaySinh" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Địa Chỉ</label>
+                <input asp-for="DiaChi" class="form-control" />
+                <span asp-validation-for="DiaChi" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Số Điện Thoại</label>
+                <input asp-for="Sdt" class="form-control" />
+                <span asp-validation-for="Sdt" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">E-mail</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Chức Vụ</label>
+                <select asp-for="MaChucVu" class ="form-control" asp-items="ViewBag.MaChucVu"></select>
+            </div>
+        </div>
+        <div class="mt-2">
+            <input type="submit" value="Thêm" class="btn btn-primary me-2"/>
+            <a asp-action="Index" class="btn btn-outline-secondary">Trở Về</a>
+        </div>
+      </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

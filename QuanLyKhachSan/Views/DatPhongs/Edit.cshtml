@@ -1,0 +1,84 @@
+﻿@model QuanLyKhachSan.Models.DatPhong
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lý /</span><span class="text-muted fw-light"> Đặt Sảnh /</span> Sửa</h4>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaDatPhong" />
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="tenPhong" class="form-label">Tên Khách Hàng</label>
+                    <select asp-for="MaKhachHang" class="form-control" asp-items="ViewBag.MaKhachHang"></select>
+                    <span asp-validation-for="MaKhachHang" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="loaiPhong" class="form-label">Sảnh</label>
+                    <select asp-for="MaPhong" class="form-control" asp-items="ViewBag.MaPhong"></select>
+                    <span asp-validation-for="MaPhong" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="diachi" class="form-label">Ngày Thuê</label>
+                    <input asp-for="NgayBatDau" class="form-control" />
+                    <span asp-validation-for="NgayBatDau" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="diachi" class="form-label">Ngày Trả</label>
+                    <input asp-for="NgayKetThuc" class="form-control" />
+                    <span asp-validation-for="NgayKetThuc" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">Số Ngày</label>
+                    <!-- Hiển thị số ngày thuê tự động -->
+                    <input asp-for="SoNgayThue" class="form-control" id="SoNgayThue" readonly />
+                    <span asp-validation-for="SoNgayThue" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="diachi" class="form-label">Tổng Tiền</label>
+                    <input asp-for="ThanhTien" class="form-control" />
+                    <span asp-validation-for="ThanhTien" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="diachi" class="form-label">Nhân Viên</label>
+                    <select asp-for="MaNhanVien" class="form-control" asp-items="ViewBag.MaNhanVien"></select>
+                    <span asp-validation-for="MaNhanVien" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="diachi" class="form-label">Trạng Thái</label>
+                    <select asp-for="MaTrangThai" class="form-control" asp-items="ViewBag.MaTrangThai"></select>
+                    <span asp-validation-for="MaTrangThai" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mt-2">
+                <input type="submit" value="Lưu Thay Đổi" class="btn btn-primary me-2"/>
+                <a asp-action="Index" class="btn btn-outline-secondary">Trở Về</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <!-- Đảm bảo rằng bạn đã đính kèm phiên bản jQuery trước khi đoạn mã này -->
+    <script>
+        $(document).ready(function () {
+            // Lắng nghe sự kiện khi ngày thuê hoặc ngày trả thay đổi
+            $("#NgayBatDau, #NgayKetThuc").change(function () {
+                var ngayBatDau = new Date($("#NgayBatDau").val());
+                var ngayKetThuc = new Date($("#NgayKetThuc").val());
+
+                if (!isNaN(ngayBatDau) && !isNaN(ngayKetThuc)) {
+                    // Tính toán số ngày giữa hai ngày
+                    var soNgayThue = Math.ceil((ngayKetThuc - ngayBatDau) / (1000 * 60 * 60 * 24));
+
+                    // Hiển thị giá trị trong trường "Số Ngày"
+                    $("#SoNgayThue").val(soNgayThue);
+                }
+            });
+        });
+    </script>
+}
